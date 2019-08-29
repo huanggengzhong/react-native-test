@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,    initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <di id="root">
+        </div>
+</body>
+
+</html>
+<script src="./lib/label.js"></script>
+<script src="./lib/react.js"></script>
+<script src="./lib/react-dom.js"></script>
+<script type="text/babel">
+    class MyComponent extends React.Component{
+        // state两种初始化方法:
+        //第一种简洁,好用
+        // state={
+        //     name:'admin'
+        // }
+        //第二种:要用this点出来,当事件需要在构造方法里绑定this的时候可以使用constructor方法,但其实没多大的必要,因为第一种方法直接可以使用箭头函数来绑定也是一样的.
+        constructor(props){
+            super(props)
+            this.state={
+                    name:'admin2'
+            }
+        }
+
+        render() {
+            return (
+                <div>初始的值是{this.state.name}</div>
+            )
+        }
+    }
+
+    ReactDOM.render(
+    <MyComponent/>, document.getElementById('root') )
+</script>

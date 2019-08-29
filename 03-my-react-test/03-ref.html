@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
+<script src="./lib/label.js"></script>
+<script src="./lib/react.js"></script>
+<script src="./lib/react-dom.js"></script>
+<script type="text/babel">
+
+
+
+class Mytitle extends React.Component{
+    onClick=()=>{
+        console.log(this.refs.alert);
+        
+        this.refs.alert.showAlert('MyTitle')
+    }
+    render(){
+        return (
+            <div>
+                <h1 onClick={this.onClick}>点我</h1>
+                <Alert ref='alert'/>
+            </div>
+        )
+    }
+}
+
+class Alert extends React.Component{
+    showAlert(message){
+        alert(`弹出内容:${message}`)
+    }
+    render() {
+        return null;
+    }
+}
+
+ReactDOM.render(
+    <Mytitle/>,document.getElementById('root')
+)
+
+
+/*
+总结ref属性:
+它是获取真实的dom元素,所以使用之前必须等虚拟dom完成之后再去获取.
+
+*/
+</script>
