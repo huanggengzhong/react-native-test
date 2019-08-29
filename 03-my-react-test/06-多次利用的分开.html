@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,    initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <di id="root">
+        </div>
+</body>
+
+</html>
+<script src="./lib/label.js"></script>
+<script src="./lib/react.js"></script>
+<script src="./lib/react-dom.js"></script>
+<script type="text/babel">
+    class Hello extends React.Component{
+        render(){
+            let views=[]
+            views.push(<h1>hello{this.props.name}</h1>)
+            views.push(<h1>hi{this.props.name}</h1>)
+            
+            return (views)   
+            
+        }
+    }
+
+
+    ReactDOM.render(
+    <Hello name={"小明"}/>, document.getElementById('root') )
+
+</script>
+<!-- 
+使用标签的分离可以提高效率
+
+
+ -->

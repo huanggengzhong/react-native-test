@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
+<script  src="./lib/label.js"></script>
+<script  src="./lib/react.js"></script>
+<script  src="./lib/react-dom.js"></script>
+<script type="text/babel">
+
+class FavoriteButton extends React.Component{
+    state={
+            favorite:false
+    }
+    handleClick=()=>{
+        this.setState({
+            favorite:!this.state.favorite
+        })
+    }
+    render(){
+        const text=this.state.favorite?'true':'false'
+        return (
+            <div>
+                <h1 onClick={this.handleClick}>
+            点我值会取返哦
+            </h1>
+            <h2>{text}</h2>
+            </div>
+           
+            
+        )
+    }
+}
+
+
+ReactDOM.render(
+    <FavoriteButton/>,document.getElementById('root')
+)
+
+</script>
