@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,    initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <di id="root">
+        </div>
+</body>
+
+</html>
+<script src="./lib/label.js"></script>
+<script src="./lib/react.js"></script>
+<script src="./lib/react-dom.js"></script>
+<script type="text/babel">
+    class NodeList extends React.Component{
+        render(){
+            // return (
+            //     <ol>
+            //     {
+            //         React.Children.map(this.props.children,(v)=>{
+            //             console.log(v);
+                        
+            //             return <h1>{v}</h1>
+            //         })
+                    
+                   
+            //     }
+            //     </ol>
+            // )
+
+        // 上面效果等同下面
+        var views=[]
+                     React.Children.forEach(this.props.children,(v)=>{
+                        console.log(v);//它返回的不是一个数组
+                         
+                         views.push(<h1>{v}</h1>)
+             
+        })
+        return (views)
+
+
+
+
+        }
+     
+    }
+
+
+
+    ReactDOM.render(
+    <NodeList>
+     <span>hello world1</span> 
+     <span>hello world2</span> 
+     <span>hello world3</span> 
+     </NodeList>, document.getElementById('root') )
+</script>
+<!-- 
+总结:this.props.children会返回组件对象的所有属性,React提供了一个React.Children.map方法(两个参数)来遍历组件对象的所有子节点
+
+ -->
