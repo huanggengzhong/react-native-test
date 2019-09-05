@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,    initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <di id="root">
+        </div>
+</body>
+
+</html>
+<script src="./lib/label.js"></script>
+<script src="./lib/react.js"></script>
+<script src="./lib/react-dom.js"></script>
+<script type="text/babel">
+function LoginOut(props) {
+    
+    return (
+        <button onClick={props.toSon}>退出</button>
+    )
+}
+function LoginOn(props) {
+    return (
+        <button onClick={props.toSon}>登录</button>
+    )
+}
+function Greeting(props){
+    if(!props.isLoginIn){
+        return <h1>请先登录</h1>
+    }
+    return <h1>欢迎回来</h1>
+}
+
+    class LoginControl extends React.Component{
+        constructor(props){
+            super(props)
+            this.state={
+                isLoginIn:true
+            }
+        }
+        handleoutClick=()=>{
+            this.setState({
+                isLoginIn:false
+            })
+        }
+        handleInClick=()=>{
+            this.setState({
+                isLoginIn:true
+            })
+        }
+        render(){
+            const isLoginIn=this.state.isLoginIn;
+            
+            
+            let buttonDom
+            if(isLoginIn){
+               
+            //  退出组件  
+            buttonDom=<LoginOut toSon={this.handleoutClick}/>
+            
+            }else{
+                // 登录组件
+                buttonDom=<LoginOn toSon={this.handleInClick}/>
+            }
+      
+            return ( 
+                <div>
+                    <Greeting isLoginIn={this.state.isLoginIn}/>
+                    {buttonDom}
+                </div>
+             ) 
+        }
+         
+    
+    }
+
+    ReactDOM.render(
+    <LoginControl/>, document.getElementById('root') )
+</script>

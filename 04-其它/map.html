@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+let arr = [{
+      name: "佩奇",
+      male: "不详",
+      type: '对象'
+    },
+    {
+      name: "路飞",
+      male: "男",
+      type: '对象'
+    },
+    {
+      name: "娜美",
+      male: "女",
+      type: '对象'
+    },
+    {
+      name: "乔巴",
+      male: "男",
+      type: '对象'
+    },
+  ]
+
+  let newArr=arr.map(v=>{
+     return v.name
+  })
+
+  console.log(newArr);// ["佩奇", "路飞", "娜美", "乔巴"]
+  
+  let arr2=[1,2,3,4]
+  let newArr2=arr2.map(v=>(
+     v*2
+  ))//这里使用了es6里的()返回,所以可以不用return
+  console.log(newArr2)//[2,4,6,8]
+</script>

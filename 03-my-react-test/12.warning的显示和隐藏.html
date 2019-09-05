@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,    initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/12.css">
+</head>
+
+<body>
+    <di id="root">
+        </div>
+</body>
+
+</html>
+<script src="./lib/label.js"></script>
+<script src="./lib/react.js"></script>
+<script src="./lib/react-dom.js"></script>
+<script type="text/babel">
+function Warning(props){
+    if(props.warn){
+        return null
+    }
+    else{
+        return(
+            <div className='warning'>警告!</div>
+        )
+    }
+}
+class Page extends React.Component{
+    constructor(props){
+        super(props)
+        this.handleChange=this.handleChange.bind(this)
+        this.state={
+            showWarning:false
+        }
+    }
+    handleChange=()=>{
+        // 动态改变两种值的方法
+        //1.对象方式,简单
+        this.setState({
+            showWarning:!this.state.showWarning
+        })
+
+        //2.函数方式返回
+        // this.setState((state)=>{
+        //     console.log(state);//就是state对象
+        //   return{
+        //     showWarning:!state.showWarning
+        //   } 
+            
+        // })
+          //2.函数方式返回,简写
+        //   this.setState((state)=>({
+        //       showWarning:!state.showWarning
+        //   }))
+    }
+    render(){
+        return (
+            <div>
+                <Warning warn={this.state.showWarning}/>
+                <button onClick={this.handleChange}>
+                    {this.state.showWarning?'显示':'隐藏'}
+                </button>
+            </div>
+        )
+    }
+}
+    ReactDOM.render(
+    <Page/>, document.getElementById('root') )
+</script>

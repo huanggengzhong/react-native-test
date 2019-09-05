@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,    initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <di id="root">
+        </div>
+</body>
+
+</html>
+<script src="./lib/label.js"></script>
+<script src="./lib/react.js"></script>
+<script src="./lib/react-dom.js"></script>
+<script type="text/babel">
+
+const messages = ['React', 'Re: React', 'Re:Re: React'];
+function MailBox(props) {
+    const message=props.message;
+    console.log(message);
+    
+    return(
+        <div>
+        
+            <h1>hello</h1>
+            {
+                true && 
+                <h1>你有 {message.length}条未读消息</h1>  
+            }
+           </div>
+    )
+    
+}
+    ReactDOM.render(
+    <MailBox message={messages}></MailBox>, document.getElementById('root') )
+</script>
