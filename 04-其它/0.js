@@ -5,6 +5,6 @@ var text = '亲爱的#customer#，您已成功购买了#brand#的商品，订单
     result=regex.exec(text)
     while(result!=null) {
         bookmark.push(result[1]);
-        break;
+       
     }
     console.log(bookmark)
