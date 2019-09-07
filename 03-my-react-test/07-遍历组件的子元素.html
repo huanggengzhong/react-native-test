@@ -35,12 +35,11 @@
             // )
 
         // 上面效果等同下面
-        var views=[]
+                    var views=[]
                      React.Children.forEach(this.props.children,(v)=>{
                         console.log(v);//它返回的不是一个数组
                          
                          views.push(<h1>{v}</h1>)
-             
         })
         return (views)
 
