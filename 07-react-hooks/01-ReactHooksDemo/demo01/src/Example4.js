@@ -1,32 +1,18 @@
 //useContext
-import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import React, { useState,createContext,useContext} from 'react'
 
-function Index() {
-  useEffect(()=>{
-    console.log(`useEffect=>老弟,你来了! Index页面`);
-    return ()=>{
-      console.log(`老弟你走了!index页面`);
-      
-    }
-  },[])//实现了离开的生命周期函数
-  return <h2>JSPANG.COM</h2>
-}
-function List() {
-  console.log(`useEffect=>老弟,你来了! List页面`);
-  return <h2>List Page</h2>
+const CountContext =createContext();
+
+function Counter() {
+  let count=useContext(CountContext)
+  return (
+    <h2>{count}</h2>
+  )
 }
 
 //上面的内容改为hooks写法
-function Example() {
+function Example4() {
   const [count, setCount] = useState(0)
-  useEffect(() => {
-    console.log(`useEffect=>you click ${count} times`)
-    return ()=>{
-      console.log('=======================');
-      
-    }
-  },[count])
   return (
     <div>
       <p>You click {count} times</p>
@@ -35,21 +21,12 @@ function Example() {
           setCount(count + 1)
         }}
       >
-        Click
+        Click me
       </button>
-      <Router>
-        <ul>
-          <li>
-            <Link to="/">首页</Link>
-          </li>
-          <li>
-            <Link to="/list/">列表页</Link>
-          </li>
-        </ul>
-        <Route exact path="/" component={Index} />
-        <Route path="/list/" component={List} />
-      </Router>
+      <CountContext.Provider value={count}>
+      <Counter></Counter>
+      </CountContext.Provider>
     </div>
   )
 }
-export default Example
+export default Example4
